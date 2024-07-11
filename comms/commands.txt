@@ -1,0 +1,2 @@
+rpicam-vid -t 0 --inline --listen --nopreview --mode 1640:1232:8:P --framerate 30 --width 820  --height 616 -o tcp://192.168.1.192:5500
+ffmpeg -i tcp://192.168.1.7:5500 -c copy -f h264 pipe:1 stream.mp4 | ffplay pipe:0 -vf "setpts=N/30" -fflags nobuffer -flags low_delay -framedrop
